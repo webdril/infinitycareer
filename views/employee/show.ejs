@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 p-4">
+            <h4>Profile Page</h4>
+            <div class="row">
+                <div class="col-md-5">
+                <img src="https://via.placeholder.com/250/cccccc/FFFFFF/?text=IPaddress.net
+
+C/O https://placeholder.com/">
+                </div>
+                <div class="col-md-3">
+                    <p><h6><%= user.firstname %> <%= user.lastname %></h6></p>
+                    <p><h6><%= user.email %></h6></p>
+                    <p><h6><%= user.phone %></h6></p>
+                    
+                </div>
+            </div>
+        </div>
+        <% include ../partials/sidebar %>
+        
+    </div>
+</div>
+<% include ../partials/footer %>

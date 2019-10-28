@@ -1,0 +1,75 @@
+<% include ./partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- <div class="col-md-2"></div>
+            <div class="col-md-4">
+                    <h5 class="text-center">Login</h5>
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" name="email" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="password">
+                        </div>
+                        <button class="btn btn-primary btn-sm">LOG IN</button>
+                        
+                    </form>
+            </div>
+            <div class="col-md-2"></div> -->
+            <div class="col-sm-6 offset-sm-3 text-center p-4 signing-form">
+                    <h4>Please Sign In</h4>
+                    <div class="info-form">
+                        <form action="/login" class="form-inlin justify-content-center" method="POST">
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                <input type="text" class="form-control" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Password</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary ">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <% include ./partials/sidebar %>
+    </div>
+</div>
+
+
+<!-- <section id="cover">
+        <div id="cover-caption">
+            <div id="container" class="container">
+                <div class="row text-black">
+                    <div class="col-sm-6 offset-sm-3 text-center">
+                        <h1 class="display-4">Please Sign In</h1>
+                        <div class="info-form">
+                            <form action="/login" class="form-inlin justify-content-center" method="POST">
+                                <div class="form-group">
+                                    <label class="sr-only">Email</label>
+                                    <input type="text" class="form-control" placeholder="Email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-success ">okay, go!</button>
+                            </form>
+                        </div>
+                        <br>
+    
+                        <a href="#nav-main" class="btn btn-outline-secondary btn-sm" role="button">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+<% include ./partials/footer %>

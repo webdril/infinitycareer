@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+        <div class="row jpsubmit">
+            <div class="col-sm-12 col-md-8">
+                <h4><a><%= job.title %></a></h4>
+                <p><%= job.department %></p>
+               <p> <%= job.location %> | <%= job.type %> | <b>N</b> <%= job.salary %></p>
+                    <p><%= job.description %></p>
+                <button type="button" class="btn btn-danger search"><a href="/jobs/<%= job._id %>/applications/new">Apply</a></button> 
+                 <% job.applications.forEach((application)=>{ %>
+                    <p><%= application.author %> - <%= application.text %></p>
+                 <% }) %>   
+            </div><!--Ending of the main section-->
+                <%# Beginning of the right section %>
+                <div class="col-md-4">
+              <div class="card  bg-primary mb-3" style="max-width: 18rem;">
+                  <!-- <div class="card-header">Header</div> -->
+                  <div class="card-body text-white">
+                    <!-- <h5 class="card-title">Create An Account With Us</h5> -->
+                      <h3>
+                        Create an Account with Us
+                        <small class="card-text"> and we Will Get You Noticed!</small>
+                      </h3>
+                  </div>
+                  <button type="button" class="btn btn-danger search">Join Today!</button>
+              </div>
+          
+            </div>
+         </div>   
+      </div>
+
+
+<% include ../partials/footer %>

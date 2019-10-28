@@ -1,0 +1,79 @@
+<% include ../partials/header %>
+      <% if(isAuth) { %>
+        You are signed in as an <%= user.usertype%>
+      <% } %>
+ <!-- HeroSection -->
+      <section class="jumbo-banner">
+          <div class="jumbotron jumbotron-fluid jumbo-banner">
+              <div class="container">
+                <h1 class="display-4">Your Career</h1>
+                <p class="lead">Starts Here on our Platform</p>
+              </div>
+          </div>
+      </section>
+      <div class="container">
+          <h3>
+              Search For Hot Jobs
+              <small class="text-muted">Around You</small>
+            </h3>
+      </div>
+      
+      <!-- Search Form -->
+      <div class="container">
+          <div class="search-form">
+              <form>
+                <div class="form-row">
+                  <div class="col-xs-12 col-md-6 col-sm-12 f-field">
+                    <input type="text" class="form-control" placeholder="Job Title">
+                  </div>
+                  <div class="col-xs-12 col-md-2 col-sm-12 f-field">
+                    <input type="text" class="form-control" placeholder="State">
+                  </div>
+                  <div class="col-xs-9 col-md-2 col-sm-6 f-field">
+                    <input type="text" class="form-control" placeholder="Industry">
+                  </div>
+                  <div class="col-xs-3 col-md-2 col-sm-6 f-field">
+                      <button type="button" class="btn btn-danger search">Find Jobs Now!</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+      </div>
+      <div class="container">
+          <div class="intro">
+              <p class="p-intro">“Infinitycareers.com.ng” (a subsidiary of Sabideps Resources Limited) is a rapidly growing Nigeria job portal, established to bring together recruiters/employers and job seekers/applicants.We provide reliable information on the current job across various sectors of the economy, including individuals with necessary skills, abilities, experience, and competence.</p>
+            </div>
+      </div>
+      <section class="job-personality">
+        <div class="container">
+          <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <h5 class="card-header">Latest Jobs</h5>
+              <% jobs.forEach(function(jobpost){ %>
+              <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-6">
+                        
+                        <h5 class="card-title"><%= jobpost.title %></h5><br>
+                        <span><p>GMD Groups</p></span><br>
+                        <span><p><%= jobpost.department %></p></span>
+                    </div>                   
+                    <div class="col-sm-12 col-xs-12 col-md-6 salary">
+                      <%= jobpost.location %> | <%= jobpost.type %> | <b>N</b> <%= jobpost.salary %>
+                    </div>
+                </div>
+                
+                <p class="card-text"><%= jobpost.description %></p>
+                <a href="/jobs/<%=  jobpost._id%>" class="btn btn-primary">Read More</a>
+              </div>
+              <hr>
+              <% }); %>               
+            </div>
+          </div>
+          <% include ../partials/sidebar %>
+        </div>
+        </div>
+      </section>
+
+<% include ../partials/footer %>

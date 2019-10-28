@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col md 8">
+            <h4>Sign Up</h4>
+                <form action="/employee/register" method="POST">
+                    <div class="form-row">
+                            <div class="col">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
+                            </div>
+                            <div class="col">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
+                            </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                                <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
+                        </div>
+                        <div class="col">
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
+                        </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="Country" name="country" required>      
+                        </div>
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="State" name="state" required>
+                        </div>
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="City" name="city" required>
+                        </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Phone Number" name="phone" required>
+                        </div>
+                        <div class="col">
+                                <select class="form-control" name="gender" required>
+                                        <option>Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                </select>
+                        </div>
+                        <div class="col">
+                                <input type="date" class="form-control" placeholder="Date Of Birt" name="dob" required>
+                                <small id="emailHelp" class="form-text text-muted">Please Select or type your date of birth</small>
+                            </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Higher Institution" name="higherinstitution" required>
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Year Graduated" name="graduatedyear" required>
+                            <small id="emailHelp" class="form-text text-muted">Please Select or type your date of graduation</small>
+                        </div>
+                        <div class="col">
+                                <input type="file" placeholder="Upload your CV" name="resume">
+                            </div>
+                    </div>
+
+
+                    <!-- <label for="exampleFormControlSelect1">Type Of Account</label>
+                    <select class="form-control" name="usertype">
+                        <option>Choose one</option>
+                        <option value="jobseeker">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </select><br> --><br>
+                    <button class="btn btn-primary mb-2">SIGN UP</button>
+                </form>
+        </div>
+        <% include ../partials/sidebar %>
+        
+    </div>
+</div>
+<% include ../partials/footer %>

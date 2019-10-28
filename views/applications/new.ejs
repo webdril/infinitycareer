@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+        <div class="row jpsubmit">
+            <div class="col-sm-12 col-md-8">
+                <h4><a><%= jobpost.title %></a></h4>
+                <p><%= jobpost.department %></p>
+               <p> <%= jobpost.location %> | <%= jobpost.type %> | <b>N</b> <%= jobpost.salary %></p>
+               <h1 style="text-align:center">Apply to <%= jobpost.title %></h1>
+               <div style="width:80%; margin:30px auto;">
+                    <form method="POST" action="/jobs/<%= jobpost._id %>/applications">
+                            <div class="form-group">
+                            <!-- <input class="form-control" type="text" name="application[text]" placeholder="Text"> -->
+                            <textarea class="form-control" id="application" rows="6" name="application[text]" placeholder="Type your cover letter"></textarea>
+                            </div>                     
+                            <div class="form-group">
+                            <button class="btn btn-lg btn-default btn-primary btn-block">Submit</button> 
+                            </div>
+                    </form>
+                    <a href="index">Go Back</a>  
+               </div><!--Ending of the main section-->
+                <%# Beginning of the right section %>
+           </div>  
+           <% include ../partials/sidebar %> 
+      </div>
+
+</div>
+<% include ../partials/footer %>

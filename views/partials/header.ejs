@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <title>Infinity Careers - Your trusted platform for reliable jobs and credible candidates</title>
+  </head>
+  <body>
+    <div class="content">
+      <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white  nav-head">
+        <div class="container">
+          <div class="forlogo">
+            
+          <a class="navbar-brand" href="/"><img src="/img/infinity.png" height="40"></a>
+          </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/about">About Us</a>
+            <% if(!isAuth){ %>
+            <a class="nav-item nav-link" href="/login">Sign In</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/employee/register">Employee Sign-Up</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/employer/register">Employer Sign-Up</a>
+                </div>
+            </li>
+            <% }   else { %>
+              
+            <!-- <a class="nav-item nav-link" href="employee/<%=  user.usertype._id %>"> -->
+              <% if(user.usertype == "Employer"){ %>
+                <a class="nav-item nav-link" href="/employer/<%=  user.usertype._id %>">Signed In As <%= user.companyname %></a>
+              <% } else { %>
+                <a class="nav-item nav-link" href="/employee/<%=  user.usertype._id %>">Signed In As <%= user.firstname %></a> 
+              <%  } %>
+            <!-- </a> -->
+            <form method="POST" action="/logout">
+            </form>
+            <a class="nav-item nav-link" href="/logout">Sign Out</a>
+            <% } %>
+            <a class="btn btn-danger" href="/jobs/new">Post A Job</a>
+          </div>
+        </div>
+        </div>
+      </nav>

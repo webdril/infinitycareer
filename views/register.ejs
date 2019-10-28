@@ -1,0 +1,23 @@
+<% include ./partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col md 8">
+            <h1>Sign Up</h1>
+                <form action="/register" method="POST">
+                    <input type="text" class="form-control" name="name" placeholder="name"><br>
+                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email"><br>
+                    <input type="password" class="form-control" name="password" placeholder="password"><br>
+                    <label for="exampleFormControlSelect1">Type Of Account</label>
+                    <select class="form-control" name="usertype">
+                        <option>Choose one</option>
+                        <option value="jobseeker">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </select><br>
+                    <button class="btn btn-primary mb-2">SIGN UP</button>
+                </form>
+        </div>
+        <% include ./partials/sidebar %>
+        
+    </div>
+</div>
+<% include ./partials/footer %>

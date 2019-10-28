@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col md 8">
+            <h4>Sign Up</h4>
+                <form action="/employer/register" method="POST">
+                    <div class="form-row">
+                            <div class="col">
+                                    <input type="text" class="form-control" name="companyname" placeholder="Company Name" required>
+                            </div>
+                            <div class="col">
+                                    <input type="text" class="form-control" name="companyaddress" placeholder="Company Address" required>
+                            </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                                <input type="email" class="form-control" name="email" placeholder="Enter Company Email" required>
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+                        </div>
+                        <div class="col">
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
+                        </div>
+                    </div><br>
+                    <!-- <label for="exampleFormControlSelect1">Date of Birth</label><br>
+                    <input type="text" class="form-control" placeholder="_ _ /_ _ /_ _ _ _">
+                    <p class="help-block">E.g. mm/dd/yyyy</p> -->
+                    <div class="form-row">
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="Country" name="companycountry" required>      
+                        </div>
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="State" name="companystate" required>
+                        </div>
+                        <div class="col">
+                                <input type="text" class="form-control" placeholder="City" name="companycity" required>
+                        </div>
+                    </div><br>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Company Phone Number" name="companyphone" required>
+                        </div>
+                       
+                        
+                    </div>
+
+
+                    <!-- <label for="exampleFormControlSelect1">Type Of Account</label>
+                    <select class="form-control" name="usertype">
+                        <option>Choose one</option>
+                        <option value="jobseeker">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </select><br> --><br>
+                    <button class="btn btn-primary mb-2">SIGN UP</button>
+                </form>
+        </div>
+        <% include ../partials/sidebar %>
+        
+    </div>
+</div>
+<% include ../partials/footer %>
