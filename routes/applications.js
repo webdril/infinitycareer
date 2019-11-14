@@ -34,8 +34,8 @@ router.post("/jobs/:id/applications", (req, res)=>{
                     console.log(err)
                 }  else {
                     // addusername and id to application
-                    application.author.id = req.session.user._id;
-                    application.author.firstname = req.session.user.firstname;
+                    application.applicant.id = req.session.user._id;
+                    application.applicant.firstname = req.session.user.firstname;
                     // then save application
                     application.save();
                     // Associate new application to jobpost

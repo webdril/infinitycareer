@@ -7,6 +7,7 @@ var applicationSchema = new mongoose.Schema({
             ref: "Employee"
         },
         firstname: String
+       
     }
 });
 

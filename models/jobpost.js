@@ -6,18 +6,20 @@ var jobpostSchema = new mongoose.Schema({
     salary: String,
     department: String,
     description: String,
-    author:{
+    owner:{
        id:{ 
         type:mongoose.Schema.Types.ObjectId,
         ref: "Employer"
        },
-       username: String
+       companyname: String
     },
     applications: [
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref: "Application"
+            ref: "Application",
+            firstname: "req.session.user.firstname"
         }
+        
     ]
 });
 

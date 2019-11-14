@@ -41,9 +41,11 @@
               
             <!-- <a class="nav-item nav-link" href="employee/<%=  user.usertype._id %>"> -->
               <% if(user.usertype == "Employer"){ %>
-                <a class="nav-item nav-link" href="/employer/<%=  user.usertype._id %>">Signed In As <%= user.companyname %></a>
-              <% } else { %>
-                <a class="nav-item nav-link" href="/employee/<%=  user.usertype._id %>">Signed In As <%= user.firstname %></a> 
+                  <a class="nav-item nav-link" href="/employer/<%=  user.usertype._id %>">Signed In As <%= user.companyname %></a><a class="bav-item nav-link" href="/myjob/jobs/">MyJob</a>                  
+                  </div>
+                <% } else { %>
+                <a class="nav-item nav-link"  href="/employee/<%=  user.usertype._id %>">
+                Signed In As <%= user.firstname %></a> 
               <%  } %>
             <!-- </a> -->
             <form method="POST" action="/logout">

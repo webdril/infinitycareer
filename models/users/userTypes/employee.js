@@ -15,7 +15,13 @@ const Employee = Base.discriminator(
         state: { type: String},
         city: { type: String},
         higherinstitution: { type: String },
-        graduatedyear: { type: Date }
+        graduatedyear: { type: Date },
+        appliedjobs: [
+                {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "Application"
+                }
+        ]
     })
 );
 

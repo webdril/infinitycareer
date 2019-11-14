@@ -11,7 +11,13 @@ const Employer = Base.discriminator(
     companyphonenumber: {type: Number },
     companycountry: {type: String },
     companystate: {type: String },
-    companycity: {type: String }
+    companycity: {type: String },
+    jobposts: [
+        {
+          type: mongoose.Schema.Types.ObjectId, 
+          ref: "Jobpost"
+        }
+    ]
   })
 );
 
