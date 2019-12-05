@@ -10,7 +10,7 @@ const mongoDBStore = require("connect-mongodb-session")(esession)
 var mongoose = require("mongoose");
 
 
-var URI = "mongodb://localhost/jober";
+var URI = "mongodb+srv://mekoos:Lordofthe_rings6480@cluster0-w6fei.mongodb.net/test?retryWrites=true&w=majority";
 // var passport = require("passport");
 // var LocalSrategy = require("passport-local");
 var methodOverride = require("method-override");
