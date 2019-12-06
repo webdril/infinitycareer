@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node app.js"
   },
+   "engines": {
+    "node": "10.16.1"
+  },
+  "private": true,
   "author": "Emeka Eluwa",
   "license": "ISC",
   "dependencies": {
