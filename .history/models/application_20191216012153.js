@@ -1,13 +1,6 @@
 var mongoose = require("mongoose");
 var applicationSchema = new mongoose.Schema({
     text: String,
-    job: {
-        id:{
-                type:mongoose.Schema.Types.ObjectId,
-                ref: "Jobpost"
-            },
-            title: String
-    },
     applicant: {
         id:{
             type:mongoose.Schema.Types.ObjectId,
@@ -23,8 +16,15 @@ var applicationSchema = new mongoose.Schema({
         state: { type: String},
         city: { type: String},
         higherinstitution: { type: String },
-        graduatedyear: { type: Date }
+        graduatedyear: { type: Date },
        
+    }, 
+    appliedjob: {
+        id:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref: "Jobpost"
+            },
+            title: String
     }
 });
 

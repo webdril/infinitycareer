@@ -8,6 +8,7 @@ var upload = multer();
 var esession = require("express-session");
 const mongoDBStore = require("connect-mongodb-session")(esession)
 var mongoose = require("mongoose");
+var methodOverride = require("method-override");
 
 
 var URI = "mongodb://localhost/jober";

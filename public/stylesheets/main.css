@@ -56,9 +56,32 @@
     top:50%;
 }
 
+.office-header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/office-header.jpg");
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-color: blueviolet;
+    height: 222px;
+}
+.office-header h1{
+    color: #fff;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 40px;
+    padding-top:70px;
+}
+.office-header p{
+    color:#fff;
+    top:50%;
+}
 .mb-5, .my-5 {
     margin-bottom: 0rem!important;
 }
+/* .mymd4 {
+    margin-left: 5px ;
+} */
+/* .card-display{
+    display: inline;
+} */
 .f-field{
     padding:10px 0;
 }
@@ -109,4 +132,15 @@ li a:hover{
 }
 .jpsubmit{
     padding: 30px 0;
+}
+#delete-form{
+    display: inline;
+}
+a:link{
+    color:rgb(209, 209, 209);
+    text-decoration: none;
+}
+a:hover{
+    color:#000;
+    text-decoration: none;
 }

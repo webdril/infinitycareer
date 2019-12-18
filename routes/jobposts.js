@@ -1,9 +1,12 @@
 var express = require ("express");
 var router = express.Router();
-var Jobpost = require ("../models/jobpost")
+var Jobpost = require ("../models/jobpost");
+var Application = require ("../models/application");
 var isAuth = require("../isAuth");
 var isEmployer = require("../isEmployer");
 var Base = require("../models/users/config/Base");
+var Employer = require("../models/users/userTypes/employer");
+var Employee = require("../models/users/userTypes/employee");
 
 
 
@@ -82,20 +85,90 @@ router.get("/jobs/:id", function(req, res){
     
 });
 
-//Show all jobpost of an Employer
-router.get("/myjob/jobs", isAuth, function(req, res){
-    let usertype = req.session.user.usertype;
-    if(usertype == "Employee"){
-       
-        return res.redirect("back");
-    }
-    
-    Jobpost.find( { owner: req.session.user._id } )
-           .exec(function (err, alljobs) {
-            if (err) return handledError(err);
-            res.render("myjob/jobs/show", {jobs: alljobs});
-           })
+
+// Edit a jobpost
+
+router.get("/jobs/:id/edit", isAuth, checkJobpostOwnership, function(req, res){
+    Jobpost.findById(req.params.id, function(err, foundJobpost){  
+        if(err){
+            res.redirect("back");
+        }
+        res.render("jobs/edit",{jobpost: foundJobpost});            });
+    });
+
+// Update JobPost route
+
+router.put("/jobs/:id", isAuth, checkJobpostOwnership, function(req, res){
+    Jobpost.findByIdAndUpdate(req.params.id, req.body.jobpost, function(err, updatedJobpost){
+        if(err){
+            res.redirect("/jobs");
+        }   else{
+            // redirect somewhere to show page
+            res.redirect("/jobs/" + req.params.id);
+        }
     })
+});
+
+// DESTROY A JobPost ROUTE
+router.delete("/jobs/:id", checkJobpostOwnership, function(req, res){
+    Jobpost.findByIdAndDelete(req.params.id, function(err){
+      if(err){
+           res.redirect("/jobs");
+      }  else {
+          res.redirect("/jobs");
+      }
+    })
+});
+
+
+// Get all applications of a jobpost
+
+router.get("/jobs/:id/applications", checkJobpostOwnership, function(req, res){
+    Jobpost.findById(req.params.id).populate("applications").exec(function(err, foundJob){
+        if(err){
+            console.log(err);
+            
+        } else{
+           res.render("applications/show",{job: foundJob}); 
+        }
+    });
+    
+});
+// Show more info of a job applicant
+router.get("/applications/applicant/:id", function(req, res){
+    Application.findById(req.params.id, function(err, foundapplication){
+        if(err){
+            console.log(err);
+            
+        } else{
+           res.render("applications/applicant", {application: foundapplication}); 
+        }
+    });
+})
+
+
+//Show all jobpost of an Employer
+// router.get("/myjob/jobs", isAuth, function(req, res){
+//     let usertype = req.session.user.usertype;
+//     if(usertype == "Employee"){
+       
+//         return res.redirect("back");
+//     }
+    
+//     Jobpost.findById( { owner: req.session.user._id } )
+//            .exec(function (err, alljobs) {
+//             if (err) {
+//                 console.log(err);
+//             };
+//             res.render("myjob/jobs/show", {jobs: alljobs});
+//            })
+//     })
+    function getEmployerWithJobposts(companyname) {
+        return Employer.findOne({companyname: companyname})
+            .populate("jobposts").exec((err, posts) =>{
+                console.log("Populated Employer" + posts)
+            })
+    }
     // res.render("jobs/myjobs");
     // Jobpost.find({})
     // .sort({"createdAt": -1})
@@ -133,7 +206,6 @@ router.get("/myjob/jobs/:id", isAuth, function(req, res){
 
 
 
-
 module.exports = router;
 // function isLoggedIn(req, res, next){
 //     if(isAuth()){
@@ -141,3 +213,28 @@ module.exports = router;
 //     }
 //     res.redirect("/login");
 // }
+
+
+function checkJobpostOwnership(req, res, next){
+    if(req.session.isLoggedIn) //we could have used the middleware isLoggedIn, but because we are defining our own middleware
+    {
+        Jobpost.findById(req.params.id, function(err, foundJobpost){
+            if(err){
+                 res.redirect("back");
+            } else{
+                // Does the user own the campground
+                if(foundJobpost.owner.id.equals(req.session.user._id)){
+                    next();
+                }   else{
+                           res.redirect("back"); 
+                }
+                // res.render("campgrounds/edit", {campground: foundCampground});
+            }
+        });
+    }   else{
+        
+        res.redirect("back");
+    }
+    // does user own
+}
+

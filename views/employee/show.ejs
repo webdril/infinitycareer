@@ -4,16 +4,35 @@
         <div class="col-md-8 p-4">
             <h4>Profile Page</h4>
             <div class="row">
-                <div class="col-md-5">
-                <img src="https://via.placeholder.com/250/cccccc/FFFFFF/?text=IPaddress.net
-
-C/O https://placeholder.com/">
+                <div class="card border-light" style="width: 50rem;">
+                        <div class="card-header">User Details</div>
+                        <div class="card-body">
+                          <strong>Full Name  </strong><p class="card-text"><%= user.firstname %> <%= user.lastname %></p>
+                          <strong>Date Of Birth</strong><p class="card-text"><%= user.dob %></p>
+                          <strong>Gender</strong><p class="card-text"><%= user.gender %></p>
+                        </div>
+                       
                 </div>
-                <div class="col-md-3">
-                    <p><h6><%= user.firstname %> <%= user.lastname %></h6></p>
-                    <p><h6><%= user.email %></h6></p>
-                    <p><h6><%= user.phone %></h6></p>
-                    
+                <div class="card border-light" style="width: 50rem;">
+                        <div class="card-header">Contact Details</div>
+                        <div class="card-body">
+                          
+                          <strong>Phone Number  </strong><p class="card-text"><%= user.phone %></p>
+                          <strong>Email AAdress</strong><p class="card-text"><%= user.email %></p>
+                        </div>
+                </div>
+                <div class="card border-light" style="width: 50rem;">
+                        <div class="card-header">Other Details</div>
+                        <div class="card-body">
+                          
+                          <strong>Higher Institution  </strong><p class="card-text"><%= user.higherinstitution %></p>
+                          <strong>City</strong><p class="card-text"><%= user.city %></p>
+                          <strong>State</strong><p class="card-text"><%= user.state %></p>
+                          <strong>Country</strong><p class="card-text"><%= user.country %></p>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary search">
+                                <a href="/employee/appliedjobs">View Applied Jobs</a>
+                        </button>
                 </div>
             </div>
         </div>

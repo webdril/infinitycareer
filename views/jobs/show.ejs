@@ -8,10 +8,17 @@
                 <p><%= job.department %></p>
                <p> <%= job.location %> | <%= job.type %> | <b>N</b> <%= job.salary %></p>
                     <p><%= job.description %></p>
-                <button type="button" class="btn btn-danger search"><a href="/jobs/<%= job._id %>/applications/new">Apply</a></button> 
-                 <!--<% job.applications.forEach((application)=>{ %>
-                    <p><%= application.applicant.firstname %> - <%= application.text %></p>
-                 <% }) %>   -->
+                 
+                <% if (user && job.owner.id.equals(user._id)){ %>
+                  <a class="btn btn-warning btn-xs" href="/jobs/<%= job._id %>/edit">Edit</a>
+                  <form id="delete-form" action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+                     <button class="btn btn-danger btn-xs">Delete</button>
+                  </form>
+                  <a class="btn btn-primary btn-xs" href="/jobs/<%= job._id %>/applications">View Applicants</a>
+                <% } 
+                else if(user.usertype == "Employee") { %>
+                  <button type="button" class="btn btn-danger search"><a href="/jobs/<%= job._id %>/applications/new">Apply</a></button>
+                <% } %>
             </div><!--Ending of the main section-->
                 <%# Beginning of the right section %>
                 <div class="col-md-4">

@@ -3,27 +3,20 @@
 
 <div class="container">
         <div class="row jpsubmit">
-            <div class="col-sm-12 col-md-8">
-                <h4><a><%= job.title %></a></h4>
-                <p><%= job.department %></p>
-               <p> <%= job.location %> | <%= job.type %> | <b>N</b> <%= job.salary %></p>
-                    
-   
-               
-
-            <% job.applications.forEach(function(application){ %>
+            <div class="col-sm-12 col-md-8">          
               <div class="row">
-                  <div class="col-md-4">
-                    <%= application.applicant.firstname %>
-                  </div>
-                  <div class="col-md-4">
-                    <%= application.text %> 
-                  </div>
-                  <div>
-                    <button><a href="/applications/applicant/<%=application._id%>">View-Details</a></button>
-                  </div>
+                <div class="col-md-8">
+                <strong>Applicant's Name :</strong>  <%= application.applicant.firstname %> <%= application.applicant.lastname%><br>
+                <strong>Applicant's Gender :</strong><%= application.applicant.gender %><br>
+                <strong>Applicant's Date of Birth :</strong><%= application.applicant.dob %><br>
+                <strong>Applicant City :</strong><%= application.applicant.city %><br>
+                <strong>Applicant's State :</strong> <%= application.applicant.state %><br>
+                <strong>Applicant's Country :</strong> <%= application.applicant.country %><br>
+                <strong>Applicant's Phone Number :</strong><%= application.applicant.phone %><br>
+                <strong>Applicant's Email :</strong><%= application.applicant.email %><br>
+                </div>
               </div> <hr>
-            <% }) %>
+            
 
             </div><!--Ending of the main section-->
                 <%# Beginning of the right section %>

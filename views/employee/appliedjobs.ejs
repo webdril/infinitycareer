@@ -3,28 +3,12 @@
 
 <div class="container">
         <div class="row jpsubmit">
-            <div class="col-sm-12 col-md-8">
-                <h4><a><%= job.title %></a></h4>
-                <p><%= job.department %></p>
-               <p> <%= job.location %> | <%= job.type %> | <b>N</b> <%= job.salary %></p>
-                    
-   
-               
-
-            <% job.applications.forEach(function(application){ %>
+            <div class="col-sm-12 col-md-8">          
               <div class="row">
-                  <div class="col-md-4">
-                    <%= application.applicant.firstname %>
-                  </div>
-                  <div class="col-md-4">
-                    <%= application.text %> 
-                  </div>
-                  <div>
-                    <button><a href="/applications/applicant/<%=application._id%>">View-Details</a></button>
-                  </div>
-              </div> <hr>
-            <% }) %>
-
+                    <% applications.forEach(function(application){ %>
+                        <%= application.appliedjob.title %>
+                        <br><br>
+                    <%}) %>
             </div><!--Ending of the main section-->
                 <%# Beginning of the right section %>
                 <div class="col-md-4">

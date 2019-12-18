@@ -1,23 +1,44 @@
 <% include ../partials/header %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 p-4">
-            <h4>Profile Page</h4>
-            <div class="row">
-                <div class="col-md-5">
-                <img src="https://via.placeholder.com/250/cccccc/FFFFFF/?text=IPaddress.net
-
-C/O https://placeholder.com/">
-                </div>
-                <div class="col-md-3">
-                    <p><h6><%= user.companyname %></h6></p>
-                    <p><h6><%= user.email %></h6></p>
-                    <p><h6><%= user.companyaddress %></h6></p>
-                    
-                </div>
+<section class="office-header">
+        <div class="office-header">
+            <div class="container">
+              <h2 class="display-4 text-white"><%= employer.companyname %></h2>
+              <p class="lead">Infinity Career page</p>
+              <p class="lead"><%= employer.email %></p>
+                <p class="lead"><%=employer.companyaddress %></p>
             </div>
         </div>
-        <% include ../partials/sidebar %>
+</section>
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row list-top">
+                <div>
+                <p><h2>Latest Jobs</h2></p>                     
+                        <div class="row" style = "display:flex; flex-wrap:wrap;">
+                                <% jobposts.forEach(function(jobpost){ %>
+                                    <div class="col-md-4 col-sm-6 mb-3">
+                                    
+                                        <div class="card card-display" style="width: 15rem; height: 10rem">
+                                            <div class="card-body"> 
+                                                    <h6 class="card-title"><a href="/jobs/<%= jobpost._id%>"><%= jobpost.title %></a></h6>  
+                                                    <p class="card-text"> <%= jobpost.location%></p>
+                                                    <p>
+                                                        <a href="/jobs/<%=  jobpost._id%>"class="btn btn-primary" >View Job</a>
+                                                    </p>
+                                            </div>
+                                            
+                                        </div>
+                                
+                                    </div>
+                                <% }); %>
+                        </div>
+                </div>
+                <hr>
+              
+            </div>
+        </div>
+        <% include ../employer/employerSidebar %>
         
     </div>
 </div>

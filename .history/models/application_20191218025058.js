@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var applicationSchema = new mongoose.Schema({
     text: String,
-    job: {
+    appliedjob: {
         id:{
                 type:mongoose.Schema.Types.ObjectId,
                 ref: "Jobpost"

@@ -16,9 +16,10 @@ const Employer = Base.discriminator(
         {
           type: mongoose.Schema.Types.ObjectId, 
           ref: "Jobpost"
-        }
+       }
+
     ]
   })
-);
+)
 
 module.exports = mongoose.model("Employer");

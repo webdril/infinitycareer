@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<div class="container">
+<div class="row jpsubmit">
+    <div class="col-sm-12 col-md-8">
+        <h1>Edit Job: <%= jobpost.title%></h1>
+        <form method="POST" action="/jobs/<%= jobpost._id %>?_method=PUT">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                <label for="inputfortitle">Job Title</label>
+                <input type="text" class="form-control" id="inputfortitle" placeholder="Job Title" name="jobpost[title]" value="<%= jobpost.title %>">
+                </div>
+                <div class="form-group col-md-6">
+                <label for="inputforjobtype">Job Type</label>
+                <input type="type" class="form-control" id="inputjobtype" placeholder="Full Time, Part Time, Internship" name="jobpost[type]" value="<%= jobpost.type %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="inputlocation">Location</label>
+                    <input type="text" class="form-control" id="inputlocation" placeholder="Job Location" name="jobpost[location]" value="<%= jobpost.location %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputsalary">Salary</label>
+                    <input type="text" class="form-control" id="inputsalary" placeholder="Amount or Confidential" name="jobpost[salary]" value="<%= jobpost.salary %>">
+                </div>                      
+            </div>
+            <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" class="form-control" id="department" placeholder="e.g: IT & Software, Administrative & Office, Accounting etc" name="jobpost[department]" value="<%= jobpost.department %>">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Job Description</label>
+                <textarea class="form-control" type="textarea" id="description" rows="6" name="jobpost[description]"><%= jobpost.description %></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>
+    <% include ../partials/sidebar %>
+</div>
+</div>
+
+<% include ../partials/footer %>

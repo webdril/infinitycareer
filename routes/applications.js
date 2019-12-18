@@ -3,7 +3,7 @@ var router = express.Router();
 var Jobpost = require ("../models/jobpost");
 var Application = require ("../models/application");
 var isAuth = require("../isAuth");
-// var Employee = require ("../models/users/userTypes/employee");
+var Employee = require ("../models/users/userTypes/employee");
 // var isAuth = require("../isAuth");
 // var isEmployer = require("../isEmployer");
 // var Base = require("../models/users/config/Base");
@@ -33,9 +33,19 @@ router.post("/jobs/:id/applications", (req, res)=>{
                 if(err){
                     console.log(err)
                 }  else {
-                    // addusername and id to application
+                    // addFirstname and id to application
                     application.applicant.id = req.session.user._id;
                     application.applicant.firstname = req.session.user.firstname;
+                    application.applicant.lastname = req.session.user.lastname;
+                    application.applicant.email = req.session.user.email;
+                    application.applicant.phone = req.session.user.phone;
+                    application.applicant.dob = req.session.user.dob;
+                    application.applicant.gender = req.session.user.gender;
+                    application.applicant.country = req.session.user.country;
+                    application.applicant.state = req.session.user.state;
+                    application.applicant.city = req.session.user.city;
+                    application.applicant.higherinstitution = req.session.user.higherinstitution;
+                    application.applicant.graduatedyear = req.session.user.graduatedyear;
                     // then save application
                     application.save();
                     // Associate new application to jobpost
@@ -51,9 +61,21 @@ router.post("/jobs/:id/applications", (req, res)=>{
     })
 })
 
-// router.get("/applications", (req, res) => {
 
-// });
+// Show all applications of an Employee
+
+function getEmployeeJobApplication(firstname) {
+	return Employee.findOne({firstname: firstname})
+	  .populate("applications").exec((err, posts) =>{
+        console.log("Populated Employee" + posts)
+      }
+	    
+)
+}
+
+
+
+
 
 
 module.exports = router;
