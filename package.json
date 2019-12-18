@@ -4,8 +4,12 @@
   "description": "A Job Application Portal for Job Seekers and Employees",
   "main": "app.js",
   "scripts": {
-    "watch": "nodemon ./app.js"
+    "start": "node app.js"
   },
+   "engines": {
+    "node": "10.16.1"
+  },
+  "private": true,
   "author": "Emeka Eluwa",
   "license": "ISC",
   "dependencies": {
